@@ -9,10 +9,6 @@ public class PlatformController : MonoBehaviour
 
     private GameObject topLine;
 
-    //private Animator animator;
-    //public GameObject checkPoint;
-    //public bool isHit;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,4 +30,5 @@ public class PlatformController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
