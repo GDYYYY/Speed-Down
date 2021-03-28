@@ -1233,13 +1233,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xSpeed: 5
-  ySpeed: 0.4
-  force: 10
+  jumpForce: 10
   checkRadius: 0.35
   platformMask:
     serializedVersion: 2
     m_Bits: 256
   checkPoint: {fileID: 370618651}
+  blowForce: 0
 --- !u!114 &1321959504
 MonoBehaviour:
   m_ObjectHideFlags: 0

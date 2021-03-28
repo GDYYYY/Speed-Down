@@ -7,8 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     public float xSpeed;
-    public float ySpeed;
-    public float force;
+    public float jumpForce;
     public float checkRadius;
   //  public float checkHight;
 
@@ -16,17 +15,16 @@ public class PlayerController : MonoBehaviour
   //  public LayerMask blowerMask;
 
     public GameObject checkPoint;
-    private Collider2D blower;
+   // private Collider2D blower;
     private bool isOnGround;
-    private bool isBlown;
-
-    private float blowForce;
+   // private bool isBlown;
+   // public float blowForce;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        isBlown = false;
+       // isBlown = false;
     }
 
     // Update is called once per frame
@@ -61,22 +59,22 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isJump", rb.velocity.y > 0 ? true : false);
     }
 
-    void blow()
-    {
-        if (isBlown)
-        {
-            blowForce = 1 / (checkPoint.transform.position.y - blower.transform.position.y);
-            Debug.Log(blowForce);
-            rb.AddForce(new Vector2(0.0f, force * blowForce));
-        }
-    }
+    //void blow()
+    //{
+    //    if (isBlown)
+    //    {
+    //        float force = 1 / (checkPoint.transform.position.y - blower.transform.position.y);
+    //        Debug.Log(blowForce);
+    //        rb.AddForce(new Vector2(0.0f, force * blowForce));
+    //    }
+    //}
 
     void jump(float yInput)
     {
         
            // blowForce = 1 / (checkPoint.transform.position.y - blower.transform.position.y);
            // Debug.Log(blowForce);
-            rb.AddForce(new Vector2(0.0f, force * yInput));
+            rb.AddForce(new Vector2(0.0f, jumpForce * yInput));
         
     }
 
