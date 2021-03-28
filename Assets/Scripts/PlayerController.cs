@@ -51,10 +51,10 @@ public class PlayerController : MonoBehaviour
     {
         float xInput = Input.GetAxisRaw("Horizontal");
         float yInput = Input.GetAxisRaw("Vertical");
-        if (!isOnGround) yInput = 0;
-        //jump();
-       // blow();
-        rb.velocity = new Vector2(xInput * xSpeed, rb.velocity.y+yInput*ySpeed);
+    
+        if(isOnGround&&yInput>0) {jump(yInput);}
+        // blow();
+        rb.velocity = new Vector2(xInput * xSpeed, rb.velocity.y);
         if (xInput != 0)
             transform.localScale = new Vector3(xInput, 1, 1);
         animator.SetFloat("speed",Mathf.Abs(rb.velocity.x));
@@ -71,14 +71,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void jump()
+    void jump(float yInput)
     {
-        if (isBlown)
-        {
-            blowForce = 1 / (checkPoint.transform.position.y - blower.transform.position.y);
-            Debug.Log(blowForce);
-            rb.AddForce(new Vector2(0.0f, force * blowForce));
-        }
+        
+           // blowForce = 1 / (checkPoint.transform.position.y - blower.transform.position.y);
+           // Debug.Log(blowForce);
+            rb.AddForce(new Vector2(0.0f, force * yInput));
+        
     }
 
     public void Die()
