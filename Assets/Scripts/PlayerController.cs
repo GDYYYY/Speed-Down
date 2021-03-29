@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         
            // blowForce = 1 / (checkPoint.transform.position.y - blower.transform.position.y);
            // Debug.Log(blowForce);
-            rb.AddForce(new Vector2(0.0f, jumpForce * yInput));
+            rb.AddForce(new Vector2(0.0f, jumpForce *yInput));
         
     }
 
